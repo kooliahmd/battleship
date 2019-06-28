@@ -1,0 +1,21 @@
+services:
+
+  # default configuration for services in *this* file
+  _defaults:
+    autowire: true      # Automatically injects dependencies in your services.
+#    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+
+  SnakeTn\ApiBundle\EventListener\ViewResponseListener:
+    tags:
+      - { name: kernel.event_listener, event: kernel.view }
+
+  SnakeTn\ApiBundle\RequestBodyConverter:
+    class: SnakeTn\ApiBundle\RequestBodyConverter
+    tags:
+      - {name: request.param_converter, priority: -2, converter: snaketn.api.request_body_converter}
+
+  serializer.normalizer.property:
+    class: Symfony\Component\Serializer\Normalizer\PropertyNormalizer
+    tags:
+      - {name: serializer.normalizer, priority: 0}

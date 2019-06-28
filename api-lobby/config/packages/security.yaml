@@ -1,0 +1,4 @@
+security:
+  access_control:
+    - { path: /, roles: ROLE_PLAYER }
+

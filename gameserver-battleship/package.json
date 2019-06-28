@@ -1,0 +1,12 @@
+{
+  "watch": {
+    "re-build": {
+      "extensions": "*",
+      "patterns": ["src","bin","vendor"]
+    }
+  },
+  "scripts": {
+    "re-build": "make -C devops start",
+    "watch": "npm-watch"
+  }
+}

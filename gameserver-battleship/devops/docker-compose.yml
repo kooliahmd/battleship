@@ -1,0 +1,20 @@
+version: '3.6'
+
+services:
+  php-cli:
+    ports:
+      - "8080:8080"
+    build:
+      context: ..
+      dockerfile: devops/image/php/Dockerfile
+    networks:
+      - battleship
+      - default
+
+networks:
+  battleship:
+    name: custom_battleship
+    driver: bridge
+  default:
+    name: custom_game
+    driver: bridge

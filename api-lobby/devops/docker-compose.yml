@@ -1,0 +1,39 @@
+version: '3.6'
+
+services:
+  php-fpm:
+    build:
+      context: ..
+      dockerfile: devops/image/php/Dockerfile
+    networks:
+      - battleship
+      - default
+
+  nginx:
+    build:
+      context: ..
+      dockerfile: devops/image/nginx/Dockerfile
+    ports:
+      - "8003:80"
+    networks:
+      - default
+
+  mariadb:
+    build:
+      context: ..
+      dockerfile: devops/image/mariadb/Dockerfile
+    env_file:
+      - .env
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    networks:
+      - default
+
+networks:
+  battleship:
+    name: custom_battleship
+    driver: bridge
+  default:
+    name: custom_lobby
+    driver: bridge

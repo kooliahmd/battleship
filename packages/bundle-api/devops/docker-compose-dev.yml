@@ -1,0 +1,10 @@
+version: '3.6'
+
+services:
+  php-fpm:
+    volumes:
+      - type: bind
+        source: ..
+        target: /var/www/app
+        consistency: delegated
+      - ../devops/image/php/dev.ini:/usr/local/etc/php/conf.d/xdebug_dev.ini

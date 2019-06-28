@@ -1,0 +1,11 @@
+1- create game
+
+2.1- host create distribution
+2.2- guest create distribution
+
+3-start game
+
+loop:
+  4-send fire instruction
+  5-send fire instruction
+

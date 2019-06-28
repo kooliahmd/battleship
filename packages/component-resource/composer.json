@@ -1,0 +1,14 @@
+{
+  "name": "snake-tn/resource",
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "SnakeTn\\Resource\\": ""
+    }
+  },
+  "require": {
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8.1"
+  }
+}

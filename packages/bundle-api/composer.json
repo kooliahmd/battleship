@@ -1,0 +1,19 @@
+{
+  "name": "snake-tn/api-bundle",
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "SnakeTn\\ApiBundle\\": ""
+    }
+  },
+  "require": {
+    "symfony/http-kernel": "^4.3",
+    "symfony/dependency-injection": "^4.3",
+    "symfony/yaml": "^4.3",
+    "symfony/config": "^4.4@dev",
+    "symfony/serializer-pack": "dev-master"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8.1"
+  }
+}

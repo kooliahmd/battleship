@@ -1,0 +1,15 @@
+version: '3.6'
+
+services:
+  rabbitmq:
+    build:
+      context: ..
+      dockerfile: devops/image/rabbitmq/Dockerfile
+    networks:
+      - battleship
+    ports:
+      - "15672:15672"
+networks:
+  battleship:
+    name: custom_battleship
+    driver: bridge
