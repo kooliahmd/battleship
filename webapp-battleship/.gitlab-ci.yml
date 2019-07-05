@@ -1,0 +1,15 @@
+stages:
+  - test
+  - install-deps
+  - build
+  - deploy
+
+build-nginx-img:
+  stage: build
+  image: docker:stable
+  services:
+    - docker:dind
+  script:
+    - echo $GCLOUD_SERVICE_ACCOUNT_KEY | docker login -u _json_key --password-stdin gcr.io
+    - docker build -f deploy/docker/nginx/Dockerfile . -t gcr.io/$GCLOUD_PROJECT_ID/webapp-nginx:$CI_COMMIT_SHA
+    - docker push gcr.io/$GCLOUD_PROJECT_ID/webapp-nginx:$CI_COMMIT_SHA
