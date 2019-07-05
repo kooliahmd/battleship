@@ -23,9 +23,7 @@ class ApiExtensionTest extends TestCase
         $container->getCompilerPassConfig()->setOptimizationPasses([]);
         $container->getCompilerPassConfig()->setRemovingPasses([]);
 
-
         $container->loadFromExtension('api');
-
 
         $container->compile();
         return $container;

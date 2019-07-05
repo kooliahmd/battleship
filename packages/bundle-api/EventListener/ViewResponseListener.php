@@ -6,10 +6,10 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\ViewEvent;
 use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Contracts\HttpClient\ResponseInterface;
 
 class ViewResponseListener
 {
-
     private $serializer;
 
     public function __construct(SerializerInterface $serializer)
@@ -24,7 +24,7 @@ class ViewResponseListener
             $event->setResponse(new Response(null));
             return;
         }
-        $json = $this->serializer->serialize($controllerResult,'json');
+        $json = $this->serializer->serialize($controllerResult, 'json');
         $event->setResponse(new JsonResponse($json, Response::HTTP_OK, [], true));
     }
 }

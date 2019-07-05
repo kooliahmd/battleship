@@ -136,6 +136,9 @@
             "config/packages/sensio_framework_extra.yaml"
         ]
     },
+    "snake-tn/api-bundle": {
+        "version": "dev-master"
+    },
     "snc/redis-bundle": {
         "version": "2.0",
         "recipe": {
@@ -150,6 +153,9 @@
     },
     "symfony/cache": {
         "version": "4.3-dev"
+    },
+    "symfony/cache-contracts": {
+        "version": "v1.1.5"
     },
     "symfony/config": {
         "version": "4.3-dev"
@@ -184,6 +190,9 @@
     },
     "symfony/event-dispatcher": {
         "version": "4.3-dev"
+    },
+    "symfony/event-dispatcher-contracts": {
+        "version": "v1.1.5"
     },
     "symfony/filesystem": {
         "version": "4.3-dev"
@@ -285,25 +294,11 @@
     "symfony/serializer-pack": {
         "version": "dev-master"
     },
+    "symfony/service-contracts": {
+        "version": "v1.1.5"
+    },
     "symfony/stopwatch": {
         "version": "4.3-dev"
-    },
-    "symfony/twig-bridge": {
-        "version": "4.3-dev"
-    },
-    "symfony/twig-bundle": {
-        "version": "3.3",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "3.3",
-            "ref": "369b5b29dc52b2c190002825ae7ec24ab6f962dd"
-        },
-        "files": [
-            "config/packages/twig.yaml",
-            "config/routes/dev/twig.yaml",
-            "templates/base.html.twig"
-        ]
     },
     "symfony/var-exporter": {
         "version": "4.3-dev"
@@ -311,13 +306,13 @@
     "symfony/yaml": {
         "version": "4.3-dev"
     },
-    "twig/twig": {
-        "version": "2.x-dev"
-    },
     "webmozart/assert": {
         "version": "1.4.0"
     },
     "zendframework/zend-code": {
         "version": "3.3-dev"
+    },
+    "zendframework/zend-eventmanager": {
+        "version": "3.2.1"
     }
 }
