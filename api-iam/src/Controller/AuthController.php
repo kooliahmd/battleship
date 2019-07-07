@@ -27,7 +27,7 @@ class AuthController
 
     /**
      * @Route(path="/authenticate", methods={"post"})
-     * @ParamConverter(name="userDto", converter="app.request_body_converter")
+     * @ParamConverter(name="userDto", converter="snaketn.api.request_body_converter")
      * @param $userDto
      */
     public function authenticate(UserDto $userDto)

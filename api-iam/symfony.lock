@@ -157,6 +157,9 @@
             "config/packages/sensio_framework_extra.yaml"
         ]
     },
+    "snake-tn/api-bundle": {
+        "version": "dev-master"
+    },
     "snc/redis-bundle": {
         "version": "2.0",
         "recipe": {
@@ -171,6 +174,9 @@
     },
     "symfony/cache": {
         "version": "4.3-dev"
+    },
+    "symfony/cache-contracts": {
+        "version": "v1.1.5"
     },
     "symfony/config": {
         "version": "4.3-dev"
@@ -188,9 +194,6 @@
             "config/bootstrap.php"
         ]
     },
-    "symfony/contracts": {
-        "version": "1.1-dev"
-    },
     "symfony/debug": {
         "version": "4.3-dev"
     },
@@ -205,6 +208,9 @@
     },
     "symfony/event-dispatcher": {
         "version": "4.3-dev"
+    },
+    "symfony/event-dispatcher-contracts": {
+        "version": "v1.1.5"
     },
     "symfony/filesystem": {
         "version": "4.3-dev"
@@ -306,6 +312,9 @@
     "symfony/serializer-pack": {
         "version": "dev-master"
     },
+    "symfony/service-contracts": {
+        "version": "v1.1.5"
+    },
     "symfony/stopwatch": {
         "version": "4.3-dev"
     },
@@ -320,5 +329,8 @@
     },
     "zendframework/zend-code": {
         "version": "3.3-dev"
+    },
+    "zendframework/zend-eventmanager": {
+        "version": "3.2.1"
     }
 }

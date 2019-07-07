@@ -10,7 +10,7 @@ use Firebase\JWT\JWT;
 
 class TokenGenerator
 {
-    const JWT_PRIVATE_KEY = 'some_key';
+    const JWT_SECRET_KEY = 'some_key';
     const JWT_ALG = 'HS256';
 
     public function generate(User $user): string
@@ -19,7 +19,7 @@ class TokenGenerator
             [
                 'user_location' => $user->getLocation()
             ],
-            self::JWT_PRIVATE_KEY,
+            self::JWT_SECRET_KEY,
             self::JWT_ALG
         );
     }

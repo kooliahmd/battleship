@@ -3,14 +3,10 @@
 
 namespace App\Dto;
 
-
-use JMS\Serializer\Annotation as Serializer;
-
 class Player
 {
 
     /**
-     * @Serializer\Type("App\Dto\User")
      * @var User
      */
     private $user;

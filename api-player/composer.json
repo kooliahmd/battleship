@@ -18,6 +18,7 @@
     "symfony/dotenv": "*",
     "symfony/flex": "^1.1",
     "symfony/framework-bundle": "*",
+    "symfony/http-client": "4.3.*",
     "symfony/orm-pack": "dev-master",
     "symfony/serializer-pack": "dev-master",
     "symfony/yaml": "*"

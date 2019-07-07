@@ -27,12 +27,10 @@ class UserController
         $this->entityManager = $entityManager;
     }
 
-
-
     /**
      * @param UserDto $userDto
      * @Route(path="/users", methods={"post"})
-     * @ParamConverter(name="userDto", converter="app.request_body_converter")
+     * @ParamConverter(name="userDto", converter="snaketn.api.request_body_converter")
      */
     public function create(UserDto $userDto)
     {

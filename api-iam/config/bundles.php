@@ -9,4 +9,5 @@ return [
     Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],
     Snc\RedisBundle\SncRedisBundle::class => ['all' => true],
     OldSound\RabbitMqBundle\OldSoundRabbitMqBundle::class => ['all' => true],
+    SnakeTn\ApiBundle\ApiBundle::class => ['all' => true],
 ];

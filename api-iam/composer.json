@@ -4,6 +4,7 @@
   "license": "MIT",
   "description": "A minimal Symfony project recommended to create bare bones applications",
   "minimum-stability": "dev",
+  "prefer-stable": true,
   "require": {
     "php": "^7.1.3",
     "ext-ctype": "*",
@@ -13,6 +14,7 @@
     "php-amqplib/rabbitmq-bundle": "^1.10@dev",
     "predis/predis": "^1.0",
     "sensio/framework-extra-bundle": "^5.2@dev",
+    "snake-tn/api-bundle": "dev-master",
     "snc/redis-bundle": "^3.0@dev",
     "symfony/console": "*",
     "symfony/dotenv": "*",
@@ -69,5 +71,11 @@
   },
   "require-dev": {
     "symfony/maker-bundle": "^1.0@dev"
-  }
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "../packages/*"
+    }
+  ]
 }

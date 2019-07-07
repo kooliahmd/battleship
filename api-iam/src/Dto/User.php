@@ -3,9 +3,6 @@
 
 namespace App\Dto;
 
-
-
-
 class User
 {
     /**

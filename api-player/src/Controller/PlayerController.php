@@ -2,27 +2,32 @@
 
 namespace App\Controller;
 
-use OldSound\RabbitMqBundle\RabbitMq\ProducerInterface;
+use App\Entity\Player;
+use App\Repository\PlayerRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
 use App\Dto\Player as PlayerDto;
 use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class PlayerController
 {
-
-    /**
-     * @var ProducerInterface
-     */
-    private $producer;
+    private $httpClient;
     private $serializer;
+    private $entityManager;
 
-    public function __construct($producer, SerializerInterface $serializer)
+    public function __construct(
+        SerializerInterface $serializer,
+        EntityManagerInterface $entityManager,
+        HttpClientInterface $httpClient
+
+    )
     {
-        $this->producer = $producer;
         $this->serializer = $serializer;
+        $this->entityManager = $entityManager;
+        $this->httpClient = $httpClient;
     }
 
     /**
@@ -31,7 +36,20 @@ class PlayerController
      */
     public function create(PlayerDto $playerDto)
     {
-        $this->producer->publish($this->serializer->serialize($playerDto, 'json'));
+        $player = new Player($playerDto->getUser()->getUsername());
+        $this->entityManager->persist($player);
+        $this->entityManager->flush();
+
+        $response = $this->httpClient->request(
+            'POST',
+            'http://api-iam_nginx/users',
+            [
+                'headers' => [
+                    'Content-Type' => 'application/json'
+                ],
+                'body' => $this->serializer->serialize($playerDto->getUser(), 'json')]
+        );
+        $response->getContent();
         return new Response(null, Response::HTTP_CREATED);
     }
 }

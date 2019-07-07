@@ -27,12 +27,3 @@ services:
     # please note that last definitions always *replace* previous ones
     Predis\Client:
         alias: snc_redis.default
-
-    App\RequestBodyConverter:
-        class: App\RequestBodyConverter
-        tags:
-            - {name: request.param_converter, priority: -2, converter: app.request_body_converter}
-
-    App\EventListener\ViewResponseListener:
-        tags:
-            - { name: kernel.event_listener, event: kernel.view }

@@ -9,6 +9,9 @@ services:
   SnakeTn\ApiBundle\EventListener\ViewResponseListener:
     tags:
       - { name: kernel.event_listener, event: kernel.view }
+  SnakeTn\ApiBundle\EventListener\ExceptionListener:
+    tags:
+      - { name: kernel.event_listener, event: kernel.exception }
 
   SnakeTn\ApiBundle\RequestBodyConverter:
     class: SnakeTn\ApiBundle\RequestBodyConverter

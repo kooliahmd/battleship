@@ -4,19 +4,18 @@ services:
   php-fpm:
     build:
       context: ..
-      dockerfile: devops/image/php/Dockerfile
+      dockerfile: devops/image/php-fpm/Dockerfile
     networks:
       - default
 
   php-cli:
     build:
       context: ..
-      dockerfile: devops/image/php/Dockerfile
+      dockerfile: devops/image/php-cli/Dockerfile
     networks:
       - default
-      - battleship
 
-  nginx:
+  api-iam_nginx:
     build:
       context: ..
       dockerfile: devops/image/nginx/Dockerfile
@@ -24,6 +23,7 @@ services:
       - "8001:80"
     networks:
       - default
+      - battleship
 
   mariadb:
     build:
