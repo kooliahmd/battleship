@@ -15,7 +15,6 @@ class AuthController
     private $repository;
     private $tokenGenerator;
 
-
     public function __construct(
         UserRepository $repository,
         TokenGenerator $tokenGenerator
@@ -32,7 +31,6 @@ class AuthController
      */
     public function authenticate(UserDto $userDto)
     {
-
         $userEntity = $this->repository->findOneBy(['username' => $userDto->getUsername()]);
 
         if (!$userEntity) {

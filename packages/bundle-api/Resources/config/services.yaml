@@ -5,10 +5,15 @@ services:
     autowire: true      # Automatically injects dependencies in your services.
 #    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
 
+  SnakeTn\ApiBundle\EventListener\CorsListener:
+    tags:
+      - { name: kernel.event_listener, method: onKernelRequest, event: kernel.request, priority: "250" }
+      - { name: kernel.event_listener, method: onKernelResponse, event: kernel.response, priority: "250" }
 
   SnakeTn\ApiBundle\EventListener\ViewResponseListener:
     tags:
       - { name: kernel.event_listener, event: kernel.view }
+
   SnakeTn\ApiBundle\EventListener\ExceptionListener:
     tags:
       - { name: kernel.event_listener, event: kernel.exception }
