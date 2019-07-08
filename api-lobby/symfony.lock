@@ -123,6 +123,9 @@
             "config/packages/sensio_framework_extra.yaml"
         ]
     },
+    "snake-tn/api-bundle": {
+        "version": "dev-master"
+    },
     "snake-tn/jwt-security-bundle": {
         "version": "dev-master"
     },

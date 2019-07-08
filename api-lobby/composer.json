@@ -9,6 +9,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "sensio/framework-extra-bundle": "^5.3@dev",
+        "snake-tn/api-bundle": "dev-master",
         "snake-tn/jwt-security-bundle": "dev-master",
         "symfony/console": "*",
         "symfony/dotenv": "*",

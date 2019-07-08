@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b39e3ef8186822e00296bd71bc9b982e",
+    "content-hash": "3ec23d596421dfedfcbe383dd24dbd32",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1819,6 +1819,31 @@
                 "controllers"
             ],
             "time": "2019-04-10T06:00:20+00:00"
+        },
+        {
+            "name": "snake-tn/api-bundle",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../packages/bundle-api",
+                "reference": "7578affaa94332ccfdbe3661e5316892a22d0b9d"
+            },
+            "require": {
+                "symfony/config": "^4.3",
+                "symfony/dependency-injection": "^4.3",
+                "symfony/http-kernel": "^4.3",
+                "symfony/serializer-pack": "*",
+                "symfony/yaml": "^4.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SnakeTn\\ApiBundle\\": ""
+                }
+            }
         },
         {
             "name": "snake-tn/jwt-security-bundle",
@@ -4164,6 +4189,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "sensio/framework-extra-bundle": 20,
+        "snake-tn/api-bundle": 20,
         "snake-tn/jwt-security-bundle": 20,
         "symfony/orm-pack": 20,
         "symfony/serializer-pack": 20,
