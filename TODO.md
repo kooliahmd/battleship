@@ -3,32 +3,16 @@
 ##
 use build in json_login to authenticate users.
 
-## IAM
-* consumer to create user. (done)
-
 
 ## LOBBY
-* end point to create room
-*    //        delete  // (done)
-*    //        join    // (done)
-*    //        get all (done)
+* Send create room request. (in progress)
+* Send get all rooms.
+* bind result to UI.
+* send join.
+* send close.
 
-* make lobby end points secure : valid token is required. (done)
-
-
-## Game 
-* end point to start a game
-* end point to create units distribution for one player.
-* end point to create a game instruction
-
-## Basic UI using angular 
-* signup form
-* login form
-* create a room
-* display rooms
-* join room
-* start game
-
+## Basic UI using unity 3d 
+* read endpoints from ENV
 
 ## improvements
 * remove duplicated dtos (ex: User in iam and player)

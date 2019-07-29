@@ -1,8 +1,6 @@
 version: '3.6'
 
 services:
-
-
   nginx:
     build:
       context: ..
@@ -11,7 +9,6 @@ services:
       - "8000:80"
     networks:
       - default
-
 
 networks:
   default:

@@ -8,7 +8,6 @@ use App\Security\TokenGenerator;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\Routing\Annotation\Route;
-use Predis\Client;
 
 class AuthController
 {
@@ -44,7 +43,7 @@ class AuthController
 
         $token = $this->tokenGenerator->generate($userEntity);
 
-        return $token;
+        return ['access_token' => $token];
     }
 
 }

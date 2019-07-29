@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Dto;
 
 class Room
@@ -10,9 +11,9 @@ class Room
     private $title;
 
     /**
-     * @var array
+     * @var string
      */
-    private $players;
+    private $host;
 
     /**
      * @return string
@@ -31,19 +32,11 @@ class Room
     }
 
     /**
-     * @return array
+     * @return string
      */
-    public function getPlayers(): array
+    public function getHost(): string
     {
-        return $this->players;
-    }
-
-    /**
-     * @param array $players
-     */
-    public function setPlayers(array $players): void
-    {
-        $this->players = $players;
+        return $this->host;
     }
 
 

@@ -28,11 +28,9 @@ class RoomController
      * @ParamConverter(name="room", converter="app.request_body_converter")
      * @param RoomDto $room
      */
-    public function open(RoomDto $room, Security $security)
+    public function open(RoomDto $room)
     {
-        $user = $this->getUser($security);
         $roomEntity = RoomEntity::createFromDto($room);
-        $roomEntity->setHost($user->getLocation());
         $this->entityManager->persist($roomEntity);
         $this->entityManager->flush();
 
@@ -66,7 +64,7 @@ class RoomController
     }
 
     /**
-     * @Route(path="/rooms/{roomId}/guest", methods={"POST"})
+     * @Route(path="/rooms/{roomId}/guest/self", methods={"POST"})
      */
     public function join($roomId, Security $security)
     {
@@ -74,10 +72,10 @@ class RoomController
         $user = $this->getUser($security);
         $room = $this->getRoom($roomId);
         if ($room->canAcceptGuest()) {
-            throw new AccessDeniedHttpException('guest spot not available');
+            throw new AccessDeniedHttpException('no guest spot available');
         }
 
-        $room->setGuest($user->getLocation());
+        $room->setGuest($user->getUsername());
 
         $this->entityManager->flush();
         return new Response(null, Response::HTTP_CREATED);

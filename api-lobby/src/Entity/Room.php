@@ -14,6 +14,7 @@ class Room
     {
         $room = new self();
         $room->title = $roomDto->getTitle();
+        $room->host = $roomDto->getHost();
         return $room;
     }
 
@@ -44,14 +45,6 @@ class Room
      * @ORM\Column(type="string", length=255)
      */
     private $title;
-
-    /**
-     * @param string $host
-     */
-    public function setHost(string $host): void
-    {
-        $this->host = $host;
-    }
 
     /**
      * @param string $guest

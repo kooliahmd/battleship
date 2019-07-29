@@ -7,6 +7,7 @@ use App\Repository\PlayerRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Dto\Player as PlayerDto;
 use Symfony\Component\Serializer\SerializerInterface;
@@ -21,13 +22,15 @@ class PlayerController
     public function __construct(
         SerializerInterface $serializer,
         EntityManagerInterface $entityManager,
-        HttpClientInterface $httpClient
+        HttpClientInterface $httpClient,
+        PlayerRepository $playerRepository
 
     )
     {
         $this->serializer = $serializer;
         $this->entityManager = $entityManager;
         $this->httpClient = $httpClient;
+        $this->playerRepository = $playerRepository;
     }
 
     /**
@@ -51,5 +54,16 @@ class PlayerController
         );
         $response->getContent();
         return new Response(null, Response::HTTP_CREATED);
+    }
+
+    /**
+     * @Route(path="/player/{username}", methods={"get"})
+     */
+    public function get($username){
+        $player = $this->playerRepository->find($username);
+        if(!$player){
+            throw new NotFoundHttpException();
+        }
+        return $player;
     }
 }

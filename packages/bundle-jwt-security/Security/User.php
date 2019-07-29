@@ -1,24 +1,23 @@
 <?php
 
-
 namespace SnakeTn\JwtSecurityBundle\Security;
-
 
 use Symfony\Component\Security\Core\User\UserInterface;
 
 class User implements UserInterface
 {
-    /**
-     * @var string
-     */
+
     private $location;
+
+    private $id;
 
     /**
      * @param $location string
      */
-    public function __construct(string $location)
+    public function __construct(string $location, string $id)
     {
         $this->location = $location;
+        $this->id = $id;
     }
 
     /**
@@ -36,23 +35,18 @@ class User implements UserInterface
 
     public function getPassword()
     {
-        // TODO: Implement getPassword() method.
     }
 
     public function getSalt()
     {
-        // TODO: Implement getSalt() method.
     }
 
     public function getUsername()
     {
-        // TODO: Implement getUsername() method.
+        return $this->id;
     }
 
     public function eraseCredentials()
     {
-        // TODO: Implement eraseCredentials() method.
     }
-
-
 }

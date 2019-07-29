@@ -6,7 +6,6 @@ services:
       context: ..
       dockerfile: devops/image/php/Dockerfile
     networks:
-      - battleship
       - default
 
   nginx:
