@@ -74,4 +74,9 @@ class Room
         return $this->host === $userLocation;
     }
 
+    public function getId():int
+    {
+        return $this->id;
+    }
+
 }

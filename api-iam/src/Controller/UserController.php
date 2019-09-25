@@ -9,6 +9,7 @@ use App\Entity\User as UserEntity;
 use Doctrine\ORM\EntityManagerInterface;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class UserController
@@ -39,5 +40,6 @@ class UserController
         $userEntity->setUsername($userDto->getUsername());
         $this->entityManager->persist($userEntity);
         $this->entityManager->flush();
+        return Response::create(null,Response::HTTP_CREATED);
     }
 }

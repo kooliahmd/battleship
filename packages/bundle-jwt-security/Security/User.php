@@ -6,17 +6,13 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 class User implements UserInterface
 {
-
-    private $location;
-
     private $id;
 
     /**
      * @param $location string
      */
-    public function __construct(string $location, string $id)
+    public function __construct(string $id)
     {
-        $this->location = $location;
         $this->id = $id;
     }
 

@@ -9,4 +9,5 @@ return [
     Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle::class => ['all' => true],
     Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],
     SnakeTn\ApiBundle\ApiBundle::class => ['all' => true],
+    SnakeTn\JwtSecurityBundle\JwtSecurityBundle::class => ['all' => true],
 ];

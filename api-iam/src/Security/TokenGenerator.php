@@ -17,7 +17,6 @@ class TokenGenerator
     {
         return JWT::encode(
             [
-                'user_location' => $user->getLocation(),
                 'user_id' => $user->getUsername()
             ],
             self::JWT_SECRET_KEY,

@@ -13,10 +13,10 @@ class UserProvider
     {
         $token = preg_replace('/^Bearer /', '', $token);
         $decodedToken = JWT::decode($token, 'some_key', ['HS256']);
-        if (!isset($decodedToken->user_location)) {
-            throw new UnexpectedValueException('Username is missing');
+        if (!isset($decodedToken->user_id)) {
+            throw new UnexpectedValueException('User id is missing');
         }
-        $user = new User($decodedToken->user_location);
+        $user = new User($decodedToken->user_id);
         return $user;
     }
 }
