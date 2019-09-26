@@ -40,6 +40,11 @@ class RoomController
             throw new AccessDeniedHttpException('user not allowed to create a room using other\'s host');
         }
         $roomEntity = RoomEntity::createFromDto($room);
+
+        foreach ($this->roomRepository->findBy(['host' => $user->getUsername()]) as $roomToDelete) {
+            $this->entityManager->remove($roomToDelete);
+        }
+
         $this->entityManager->persist($roomEntity);
         $this->entityManager->flush();
         return new ResourceId((string)$roomEntity->getId());
@@ -82,6 +87,10 @@ class RoomController
         $room = $this->getRoom($roomId);
         if ($room->canAcceptGuest()) {
             throw new AccessDeniedHttpException('no guest spot available');
+        }
+
+        foreach ($this->roomRepository->findBy(['guest' => $user->getUsername()]) as $roomToLeave) {
+            $roomToLeave->clearGuest();
         }
 
         $room->setGuest($user->getUsername());

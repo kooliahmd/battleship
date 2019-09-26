@@ -27,7 +27,7 @@ class GameController
     }
 
     /**
-     * @Route(path="/game", methods={"post"})
+     * @Route(path="/games", methods={"post"})
      * @ParamConverter(name="gameDto", converter="snaketn.api.request_body_converter")
      * @param GameDto $gameDto
      */
@@ -49,7 +49,7 @@ class GameController
     }
 
     /**
-     * @Route(path="/game/{host}/guest/self", methods={"post"})
+     * @Route(path="/games/{host}/guest/self", methods={"post"})
      */
     public function join(string $host, Security $security)
     {
