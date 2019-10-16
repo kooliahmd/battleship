@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: APP_NAME-nginx-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: APP_NAME-nginx
+    spec:
+      containers:
+        - name: APP_NAME-nginx
+          image: gcr.io/GCLOUD_PROJECT_ID/APP_NAME-nginx:CI_COMMIT_SHA

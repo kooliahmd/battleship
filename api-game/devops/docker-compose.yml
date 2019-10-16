@@ -29,13 +29,6 @@ services:
     networks:
       - default
 
-  redis:
-    build:
-      context: ..
-      dockerfile: devops/image/redis/Dockerfile
-    networks:
-      - default
-
 networks:
   battleship:
     name: custom_battleship

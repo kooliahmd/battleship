@@ -12,6 +12,9 @@ class CorsListener
 {
     public function onKernelRequest(RequestEvent $event)
     {
+        if($event->getRequest()->getMethod()=='DELETE'){
+            $a=1;
+        }
         if ($event->getRequest()->getMethod() !== 'OPTIONS') {
             return;
         }
@@ -29,7 +32,8 @@ class CorsListener
         $response = new Response();
         $response->headers->set('Access-Control-Allow-Origin', '*');
         $response->headers->set('Access-Control-Allow-Headers', $request->headers->get('Access-Control-Request-Headers'));
-        $response->headers->set('Access-Control-Allow-Method', $request->headers->get('Access-Control-Request-Method'));
+        $response->headers->set('Access-Control-Allow-Methods', ['DELETE','POST','GET','PATCH']);
+        $response->headers->set('Access-Control-Max-Age', 60*60*60*24);
         return $response;
     }
 }

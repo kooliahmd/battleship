@@ -5,10 +5,6 @@ RUN apt-get update \
     && apt-get install -y \
     zip libyaml-dev
 
-#install redis ext
-RUN pecl install redis \
- && echo "extension=redis.so" >> /usr/local/etc/php/conf.d/redis.ini
-
 
 #install yaml ext
 RUN pecl install yaml \
@@ -21,13 +17,15 @@ RUN docker-php-ext-install \
 RUN usermod -u 1000 www-data
 RUN groupmod -g 1000 www-data
 
-# @TODO do not install when in prod env
-#install composer
-RUN curl https://getcomposer.org/installer  \
-    | php -- --filename=composer --install-dir=/bin
+COPY bin /var/www/app/bin
+COPY config /var/www/app/config
+COPY public /var/www/app/public
+COPY src /var/www/app/src
+COPY vendor /var/www/app/vendor
+COPY .env /var/www/app/.env
 
-COPY --chown=www-data:www-data . /var/www/app
 
-RUN chown www-data:www-data /var/www
+
+RUN chown -R www-data:www-data /var/www
 
 WORKDIR /var/www/app
