@@ -12,3 +12,10 @@ spec:
       containers:
         - name: APP_NAME-php
           image: gcr.io/GCLOUD_PROJECT_ID/APP_NAME-php:CI_COMMIT_SHA
+      initContainers:
+        - name: waiting-APP_NAME-mariadb-service
+          image: busybox:1.28
+          command: ['sh', '-c', 'until nslookup APP_NAME-mariadb-service; do echo waiting for APP_NAME-mariadb-service; sleep 2; done;']
+        - name: update-schema
+          image: gcr.io/GCLOUD_PROJECT_ID/APP_NAME-php:CI_COMMIT_SHA
+          command: ['sh', '-c', 'bin/console doctrine:schema:update -f']

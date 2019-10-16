@@ -1,15 +1,14 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: php-master
+  name: APP_NAME-php-deployment
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: php
-        tier: backend
+        app: APP_NAME-php
     spec:
       containers:
-        - name: master
-          image: gcr.io/GCLOUD_PROJECT_ID/gameserver-php:CI_COMMIT_SHA
+        - name: APP_NAME-php
+          image: gcr.io/GCLOUD_PROJECT_ID/APP_NAME-php:CI_COMMIT_SHA

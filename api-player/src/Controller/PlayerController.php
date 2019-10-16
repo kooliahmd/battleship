@@ -45,7 +45,7 @@ class PlayerController
 
         $response = $this->httpClient->request(
             'POST',
-            'http://api-iam_nginx/users',
+            'http://api-iam-nginx-service/users',
             [
                 'headers' => [
                     'Content-Type' => 'application/json'

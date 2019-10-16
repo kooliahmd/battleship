@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: APP_NAME-mariadb-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: APP_NAME-mariadb
+    spec:
+      containers:
+        - name: APP_NAME-mariadb
+          image: gcr.io/GCLOUD_PROJECT_ID/APP_NAME-mariadb:CI_COMMIT_SHA
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: "root"
+            - name: MYSQL_DATABASE
+              value: "game"

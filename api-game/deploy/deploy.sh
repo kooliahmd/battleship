@@ -9,4 +9,3 @@ docker run  --env-file .env cloud-sdk sh -c \
     gcloud container clusters get-credentials --region europe-west4-a battleship &&
     kubectl apply -f /kubernetes
     '
-

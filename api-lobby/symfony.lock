@@ -132,6 +132,9 @@
     "symfony/cache": {
         "version": "4.3-dev"
     },
+    "symfony/cache-contracts": {
+        "version": "1.1-dev"
+    },
     "symfony/config": {
         "version": "4.3-dev"
     },
@@ -165,6 +168,9 @@
     },
     "symfony/event-dispatcher": {
         "version": "4.3-dev"
+    },
+    "symfony/event-dispatcher-contracts": {
+        "version": "1.1-dev"
     },
     "symfony/filesystem": {
         "version": "4.3-dev"
@@ -281,6 +287,9 @@
     "symfony/serializer-pack": {
         "version": "dev-master"
     },
+    "symfony/service-contracts": {
+        "version": "1.1-dev"
+    },
     "symfony/stopwatch": {
         "version": "4.3-dev"
     },
@@ -294,6 +303,9 @@
         "version": "1.4.0"
     },
     "zendframework/zend-code": {
+        "version": "3.3-dev"
+    },
+    "zendframework/zend-eventmanager": {
         "version": "3.3-dev"
     }
 }

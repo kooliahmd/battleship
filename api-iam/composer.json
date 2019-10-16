@@ -11,7 +11,6 @@
     "ext-iconv": "*",
     "firebase/php-jwt": "dev-master",
     "guzzlehttp/guzzle": "^6.3@dev",
-    "php-amqplib/rabbitmq-bundle": "^1.10@dev",
     "predis/predis": "^1.0",
     "sensio/framework-extra-bundle": "^5.2@dev",
     "snake-tn/api-bundle": "dev-master",
