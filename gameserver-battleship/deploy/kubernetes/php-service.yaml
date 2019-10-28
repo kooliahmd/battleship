@@ -4,6 +4,7 @@ metadata:
   name: APP_NAME-php-service
 spec:
   type: LoadBalancer
+  loadBalancerIP: APP_IP
   ports:
     - port: 8080
   selector:

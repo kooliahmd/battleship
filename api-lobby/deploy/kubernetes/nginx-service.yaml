@@ -4,6 +4,7 @@ metadata:
   name: APP_NAME-nginx-service
 spec:
   type: LoadBalancer
+  loadBalancerIP: APP_IP
   ports:
     - port: 80
   selector:
